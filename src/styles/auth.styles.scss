@@ -1,0 +1,83 @@
+.auth-container {
+  background-image: url("../assets/bgLogin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box {
+  background: rgba(165, 165, 165, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 90%;
+  width: 100%;
+  min-height: 500px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .auth-box {
+    flex-direction: row;
+    width: 80%;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.auth-form-box {
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px;
+}
+
+@media (min-width: 768px) {
+  .auth-form-box {
+    min-width: 550px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-box {
+    width: 95%;
+    flex-direction: column;
+    padding: 15px;
+  }
+  .auth-form-box {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-box {
+    width: 100%;
+    padding: 10px;
+  }
+  .auth-form-box {
+    width: 100%;
+    padding: 10px;
+  }
+}
