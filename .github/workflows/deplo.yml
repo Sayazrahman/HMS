@@ -3,7 +3,7 @@ name: HMS CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
+      - main  # Deploy only when main branch is updated
   pull_request:
     branches:
       - main
@@ -26,13 +26,14 @@ jobs:
         run: npm install
 
       - name: Run Tests
-        run: npm run test # Change if you use another test command
+        run: npm test # Make sure your test script is correct
 
       - name: Build Project
         run: npm run build
 
       - name: Deploy to Vercel
-        if: success()
+        if: github.ref == 'refs/heads/main' && success()
         run: |
           npm install -g vercel
-          vercel --token ${{ secrets.VERCEL_TOKEN }} --prod
+          vercel link --token ${{ secrets.VERCEL_TOKEN }}
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
