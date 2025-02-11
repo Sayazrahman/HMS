@@ -3,7 +3,7 @@ name: HMS CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Deploy only when main branch is updated
+      - main  # Deploy only when the main branch is updated
   pull_request:
     branches:
       - main
@@ -32,8 +32,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Vercel
-        if: github.ref == 'refs/heads/main' && success()
+        if: ${{ success() }}  # Proper indentation
         run: |
           npm install -g vercel
-          vercel link --token ${{ secrets.VERCEL_TOKEN }}
-          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+          vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --yes
